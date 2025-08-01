@@ -1,0 +1,395 @@
+:root {
+  --bg: #0d0d0d;
+  --text: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glow: #00f0ff;
+}
+
+body.light {
+  --bg: #f5f5f5;
+  --text: #111;
+  --card-bg: #fff;
+  --glow: #0077ff;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  transition: 0.4s;
+  overflow-x: hidden;
+}
+
+#particles-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header {
+  background: linear-gradient(to right, #ff0080, #7928ca);
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 20px var(--glow);
+  position: relative;
+}
+
+.theme-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #66ffcc;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.main-nav {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.page {
+  display: none;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--glow);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+}
+
+.quote {
+  font-size: 1.7rem;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 25px var(--glow);
+  background: linear-gradient(145deg, #111, #1f1f1f);
+  transition: 0.5s;
+  text-shadow: 0 0 5px var(--glow), 0 0 10px var(--glow), 0 0 15px var(--glow);
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Category colors and glows */
+[data-category="Happiness"] {
+  color: #ffcc00;
+  --glow: #ffcc00aa;
+}
+
+[data-category="Love"] {
+  color: #ff66b2;
+  --glow: #ff66b2aa;
+}
+
+[data-category="Motivation"] {
+  color: #66ffcc;
+  --glow: #66ffccaa;
+}
+
+[data-category="Morning"] {
+  color: #ffa07a;
+  --glow: #ffa07aaa;
+}
+
+.category-label {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+  background: var(--glow);
+  padding: 0.3rem 1rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.quote-controls,
+.category-buttons {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: var(--glow);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  margin: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.favorite-card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem;
+  border-left: 4px solid var(--glow);
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem;
+  color: #aaa;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.9);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.4rem 0;
+  border-top: 2px solid #555;
+  z-index: 1000;
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: white;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.bottom-nav button:hover {
+  color: #4af2ff;
+}
+
+.bottom-nav .material-icons {
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 240px;
+  background-color: #111;
+  padding-top: 3rem;
+  transition: left 0.3s ease;
+  z-index: 2000;
+}
+
+.sidebar a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar a:hover {
+  background-color: #333;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Hamburger button */
+.hamburger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  z-index: 2100;
+  cursor: pointer;
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(145deg, #00f2fe, #4facfe);
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 0 15px #4facfe;
+  z-index: 1500;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.fab:hover {
+  box-shadow: 0 0 20px #00f2fe, 0 0 40px #4facfe;
+}
+
+.fab .material-icons {
+  font-size: 28px;
+}
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: none;
+  }
+
+  .fab {
+    bottom: 90px;
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 700px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+#particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+}
+
+#fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%);
+  animation: fogMove 20s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-10%, -10%) scale(1);
+    opacity: 0.3;
+  }
+}
