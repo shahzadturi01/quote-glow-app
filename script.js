@@ -1,1 +1,0 @@
-// Example placeholder for JS content
