@@ -1,0 +1,121 @@
+<canvas id="particles-bg"></canvas>
+<div id="fog"></div>
+
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <button class="close-btn" onclick="toggleSidebar()">×</button>
+  <a href="#" onclick="navigateAndClose('home')">Home</a>
+  <a href="#" onclick="navigateAndClose('favorites')">Favorites</a>
+  <a href="#" onclick="navigateAndClose('about')">About</a>
+  <a href="#" onclick="navigateAndClose('contact')">Contact</a>
+  <a href="#" onclick="navigateAndClose('privacy')">Privacy</a>
+</div>
+
+<!-- Hamburger -->
+<button id="hamburger" class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <button onclick="showPage('home')">
+    <span class="material-icons">home</span>
+    <small>Home</small>
+  </button>
+  <button onclick="showPage('favorites')">
+    <span class="material-icons">favorite</span>
+    <small>Favorites</small>
+  </button>
+  <button onclick="showPage('contact')">
+    <span class="material-icons">mail</span>
+    <small>Contact</small>
+  </button>
+  <button onclick="showPage('about')">
+    <span class="material-icons">info</span>
+    <small>About</small>
+  </button>
+</nav>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<header>
+  <h1>TODAY'S QUOTE</h1>
+  <div class="theme-switch">
+    <label class="switch">
+      <input type="checkbox" id="themeToggle" onchange="toggleTheme()" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <nav class="main-nav">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('favorites')">Favorites</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+    <a href="#" onclick="showPage('privacy')">Privacy</a>
+  </nav>
+</header>
+
+<!-- Home -->
+<section id="home" class="page active">
+  <div class="category-buttons">
+    <button onclick="filterQuotes('All')">All</button>
+    <button onclick="filterQuotes('Happiness')">Happiness</button>
+    <button onclick="filterQuotes('Love')">Love</button>
+    <button onclick="filterQuotes('Motivation')">Motivation</button>
+    <button onclick="filterQuotes('Morning')">Morning</button>
+  </div>
+
+  <div id="quoteBox">
+    <div class="quote fade-in" id="quoteText">Loading...</div>
+    <div class="category-label" id="quoteCategory"></div>
+    <div class="quote-controls">
+      <button onclick="nextQuote()">New Quote</button>
+      <button onclick="toggleFavorite()">❤️ Favorite</button>
+      <button onclick="readAloud()">🔊 Read</button>
+      <button onclick="shareQuote()">🔗 Share</button>
+    </div>
+  </div>
+</section>
+
+<!-- Favorites -->
+<section id="favorites" class="page">
+  <h2>Your Favorites</h2>
+  <div id="favoriteList"></div>
+</section>
+
+<!-- About -->
+<section id="about" class="page">
+  <h2>About</h2>
+  <p>This app displays inspiring quotes with glowing neon animations and smooth navigation. Filter by category, save your favorites, share or listen to them aloud!</p>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="page">
+  <h2>Contact</h2>
+  <form action="mailto:sh921360@gmail.com" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Message..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<!-- Privacy -->
+<section id="privacy" class="page">
+  <h2>Privacy Policy</h2>
+  <p>No personal data is collected. All favorites are stored only in your browser’s local storage.</p>
+</section>
+
+<footer>&copy; 2025 Quote Glow App. All rights reserved.</footer>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/26/audio_ba6ac6efb7.mp3" type="audio/mpeg" />
+</audio>
+
+<button id="musicToggle" onclick="toggleMusic()" class="fab" style="bottom: 140px;" title="Toggle Music">
+  <span class="material-icons">music_note</span>
+</button>
+
+
+<!-- Floating Action Button -->
+<button class="fab" onclick="nextQuote()" aria-label="New Quote">
+  <span class="material-icons">autorenew</span>
+</button>
